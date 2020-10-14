@@ -1,0 +1,161 @@
+{
+	"variables": [],
+	"info": {
+		"name": "JWT_Example",
+		"_postman_id": "d99d2749-f30f-1a79-8d3a-17fd3c205804",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://localhost:8877/api/auth/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"emailId\":\"amit@gmail.com\",\r\n\"password\":\"amit12345\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"url": "http://localhost:8877/api/auth/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"emailId\":\"amit@gmail.com\",\r\n\"password\":\"amit12345\",\r\n\"cnfPassword\":\"amit12345\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserDetails",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8877/api/auth/user?emailId=amit@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8877",
+					"path": [
+						"api",
+						"auth",
+						"user"
+					],
+					"query": [
+						{
+							"key": "emailId",
+							"value": "amit@gmail.com",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWl0QGdtYWlsLmNvbSIsInJvbGVzIjpbeyJyb2xlIjoiVVNFUiJ9XSwiaWF0IjoxNjAyNjU2NTM0LCJleHAiOjE2MDI2NjM3MzR9.1XV7dpHTIOZqLJumMJKnMx2Lpa5i9aMmyYMKKuYNjEDs6QZkAE8CDjzEZda6BCF5cZZibAz33-WMFSA8pjvrnw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SaveUserProfile",
+			"request": {
+				"url": "http://localhost:8877/api/auth/user/saveProfile",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWl0QGdtYWlsLmNvbSIsInJvbGVzIjpbeyJyb2xlIjoiVVNFUiJ9XSwiaWF0IjoxNjAyNjU2NTM0LCJleHAiOjE2MDI2NjM3MzR9.1XV7dpHTIOZqLJumMJKnMx2Lpa5i9aMmyYMKKuYNjEDs6QZkAE8CDjzEZda6BCF5cZZibAz33-WMFSA8pjvrnw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"emailId\": \"amit@gmail.com\",\n    \"firstName\": \"AMit\",\n    \"lastName\": \"Gupta\",\n    \"phoneNumber\": 9988776655,\n    \"dob\": \"1993-04-20\",\n    \"height\": 3.5,\n    \"weight\": 60,\n    \"bmi\": null,\n    \"gender\": \"MALE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CalculateBMI",
+			"request": {
+				"url": "http://localhost:8877/api/auth/user/calculateBMI",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWl0QGdtYWlsLmNvbSIsInJvbGVzIjpbeyJyb2xlIjoiVVNFUiJ9XSwiaWF0IjoxNjAyNjU2NTM0LCJleHAiOjE2MDI2NjM3MzR9.1XV7dpHTIOZqLJumMJKnMx2Lpa5i9aMmyYMKKuYNjEDs6QZkAE8CDjzEZda6BCF5cZZibAz33-WMFSA8pjvrnw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"emailId\": \"amit@gmail.com\",\n        \"firstName\": \"AMit\",\n        \"lastName\": \"Gupta\",\n        \"phoneNumber\": 9988776655,\n        \"dob\": \"1993-04-20T00:00:00.000+0000\",\n        \"height\": \"3.5\",\n        \"weight\": \"60\",\n        \"bmi\": null,\n        \"gender\": \"MALE\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator-Health",
+			"request": {
+				"url": "http://localhost:8877/actuator/health",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator-Info",
+			"request": {
+				"url": "http://localhost:8877/actuator/info",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
